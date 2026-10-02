@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens. Colors are "R G B" triplets so Tailwind can apply alpha. */
+:root {
+  --canvas: 245 247 248;
+  --surface: 255 255 255;
+  --raised: 238 242 245;
+  --line: 221 227 232;
+  --ink: 22 32 43;
+  --muted: 87 101 117;
+  --faint: 140 152 166;
+  --accent: 59 91 219;
+  --accent-ink: 255 255 255;
+
+  /* Severity scale: warm colors are used for risk only. */
+  --sev-low: 34 139 94;
+  --sev-medium: 176 122 18;
+  --sev-high: 214 96 30;
+  --sev-critical: 200 45 55;
+
+  color-scheme: light;
+}
+
+:root.dark {
+  --canvas: 15 23 32;
+  --surface: 22 32 43;
+  --raised: 30 42 55;
+  --line: 38 50 65;
+  --ink: 226 232 239;
+  --muted: 150 163 178;
+  --faint: 104 118 135;
+  --accent: 91 124 250;
+  --accent-ink: 255 255 255;
+
+  --sev-low: 70 190 130;
+  --sev-medium: 226 170 60;
+  --sev-high: 240 128 62;
+  --sev-critical: 240 90 98;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-canvas text-ink font-sans antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+    font-feature-settings: "cv11", "ss01";
+  }
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+}
+
+@layer components {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+  .panel {
+    @apply rounded border border-line bg-surface;
+  }
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--line)) transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* React Flow theming */
+.react-flow__attribution {
+  display: none;
+}
+.react-flow__controls {
+  @apply overflow-hidden rounded border border-line;
+  box-shadow: none !important;
+}
+.react-flow__controls-button {
+  @apply border-line bg-surface text-ink;
+  fill: currentColor;
+}
+.react-flow__controls-button:hover {
+  @apply bg-raised;
+}
+.react-flow__minimap {
+  @apply rounded border border-line bg-surface;
+}
+.react-flow__edge-path {
+  stroke: rgb(var(--faint) / 0.55);
+}
