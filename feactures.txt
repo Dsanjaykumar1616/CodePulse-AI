@@ -1,0 +1,14 @@
+GitHub Repository Analysis – accepts a GitHub URL and analyzes the repository.
+Multi-Language Code Analysis – supports Python, JavaScript, TypeScript, React, HTML, CSS and Java.
+Code Metrics – analyzes LOC, complexity, functions, classes, nesting and maintainability.
+Git History Intelligence – analyzes commits, contributors, code churn, file age and bug-fix activity.
+ML Defect Risk Prediction – predicts the potential defect risk of individual files.
+Repository Health Score – gives an overall health score for the repository.
+Contribution Opportunities – identifies files that could be potential areas for contribution.
+Risk Explanation – explains why a file is considered risky.
+Related Files – shows files connected to the selected file.
+Dependency Impact Analysis – shows the potential impact of modifying a file.
+Git History Context – gives the selected file's historical activity.
+GitHub Issue Intelligence – finds potentially related existing GitHub issues.
+Contribution Difficulty – classifies opportunities as Beginner, Intermediate or Advanced.
+Contribution Plan – gives steps a contributor can follow before making a PR.
